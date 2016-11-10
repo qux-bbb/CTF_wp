@@ -17,79 +17,79 @@ payload += p32(0x0804865D)
 pwn.sendline(payload)
 
 pwn.interactive()
-```
+```  
 *SUCTF{5tack0verTlow_!S_s0_e4sy}*
 
 
 ### Web--flag 在哪？
-在cookie里
+在cookie里  
 *suctf{Thi5_i5_a_baby_w3b}*
 
 
 ### Web--编码
-密码框，开firebug看下，在请求头里有password，base64多解几次得到明文，
-然后submit被禁用，而且是get方式提交，用hackbar发过去即可
+密码框，开firebug看下，在请求头里有password，base64多解几次得到明文，  
+然后submit被禁用，而且是get方式提交，用hackbar发过去即可  
 *suctf{SU_is_23333}*
 
 
 ### Web--XSS1
-输入 `</pre><script>alert(1);</script>`   就剩下一个 `>`
-输入`</pre><img src="javascript:alert('XSS')">`  剩下 `('XSS')">`
-明神说 a标签可以，乱试了下 `<a href="alert(1);">` 得到了flag
+输入 `</pre><script>alert(1);</script>`   就剩下一个 `>`  
+输入`</pre><img src="javascript:alert('XSS')">`  剩下 `('XSS')">`  
+明神说 a标签可以，乱试了下 `<a href="alert(1);">` 得到了flag  
 *suctf{too_eaSy_Xss}*
 
 
 ### Web--PHP是世界上最好的语言
-password经过md5之后前两位是0e就可以了，这样就是识别成0
-http://45.63.58.62:8088/xedni.php?password=s878926199a
-这样就可以
+password经过md5之后前两位是0e就可以了，这样就是识别成0  
+http://45.63.58.62:8088/xedni.php?password=s878926199a  
+这样就可以  
 *suctf{PHP_!s_the_bEst_1anguage}*
 
 
 ### Web--( ゜- ゜)つロ 乾杯~
-aaencode加brainfuck
-aaencode可以直接控制台执行，好像复制有点麻烦[http://www.kwstu.com/ArticleView/kwstu_2014413102448223](http://www.kwstu.com/ArticleView/kwstu_2014413102448223)
-这个可以在线运行js代码
-brainfuck的[https://www.splitbrain.org/services/ook](https://www.splitbrain.org/services/ook)
-解码即可
+aaencode加brainfuck  
+aaencode可以直接控制台执行，好像复制有点麻烦[http://www.kwstu.com/ArticleView/kwstu_2014413102448223](http://www.kwstu.com/ArticleView/kwstu_2014413102448223)  
+这个可以在线运行js代码  
+brainfuck的[https://www.splitbrain.org/services/ook](https://www.splitbrain.org/services/ook)  
+解码即可  
 *suctf{aAenc0de_and_bra1nf\**k}*
 
 
 ### Web--你是谁？你从哪里来？（Open）
-试过x-forwarded-for 和referer 都没用
-Web--XSS2（Open）
-过滤字符：< > {  }  / ! -
+试过x-forwarded-for 和referer 都没用  
+Web--XSS2（Open）  
+过滤字符：< > {  }  / ! -  
 
 
-### Mobile--最基础的安卓逆向题
-jeb打开，在MainActivity中有flag字符串
+### Mobile--最基础的安卓逆向题  
+jeb打开，在MainActivity中有flag字符串  
 *suctf{Crack_Andr01d+50-3asy}*
 
 
-### Mobile--Mob200（Open）
-AES加密
+### Mobile--Mob200（Open）  
+AES加密  
 密文是 :XclSH6nZEPVd41FsAsqeChz6Uy+HFzV8Cl9jqMyg6mMrcgSoM0vJtA1BpApYahCY
 
 
 ### Mobile--mips（Open）
-secret：`X1p\5vYi8}Uc8j`  倒数第二个应该是0x7F,删除符
+secret：`X1p\5vYi8}Uc8j`  倒数第二个应该是0x7F,删除符  
 
 
 ### Mobile--Mob300
-这题跟第一个安卓题一样......
-jeb打开，然后提取Libraries/armeabi/libnative-lib.so，用IDA打开，查看flag_gen函数，就是flag了......
+这题跟第一个安卓题一样......  
+jeb打开，然后提取Libraries/armeabi/libnative-lib.so，用IDA打开，查看flag_gen函数，就是flag了......  
 *suctf{Meet_jni_50_fun}*
 
 
 ### Misc--签到
-加群下载群文件flag.txt
+加群下载群文件flag.txt  
 *suctf{Welc0me_t0_suCTF}*
 
 
 ### Misc-50
-一张gif图片，之前碰到过这种，使用Gifsplitter将gif图片分离成72个bmp图片
-每个bmp图片大小7\*750，整个图片大小应该是504\*750
-然后合在一起就可以
+一张gif图片，之前碰到过这种，使用Gifsplitter将gif图片分离成72个bmp图片  
+每个bmp图片大小7\*750，整个图片大小应该是504\*750  
+然后合在一起就可以  
 （图像操作参照[http://www.aichengxu.com/view/39904](http://www.aichengxu.com/view/39904)）
 
 ```
@@ -114,21 +114,21 @@ endImage.save("end.jpg","jpeg")
 
 
 ### Misc--Forensic-100
-就是一个gzip文件，解压之后凯撒即可
+就是一个gzip文件，解压之后凯撒即可  
 *suctf{PC9ChUfTk#}*
 
 
 ### Misc--这不是客服的头像嘛。。。。23333
-图片最后有压缩包，改后缀zip，解压之后img镜像，用winhex打开提取四张图片，组成一个二维码，扫一下即可
+图片最后有压缩包，改后缀zip，解压之后img镜像，用winhex打开提取四张图片，组成一个二维码，扫一下即可  
 *suctf{bOQXxNoceB}*
 
 
 ### Misc--Forensic-250（赛后）
-不知道Broken文件的文件类型，用file查过，只是说很长的字符串
-Tips:Audio，
-那就是跟音频有关，将文件里的空格都去掉，然后用winhex的16进制转二进制，最后加了一个wav格式的文件头，但是没有什么发现
+不知道Broken文件的文件类型，用file查过，只是说很长的字符串  
+Tips:Audio，  
+那就是跟音频有关，将文件里的空格都去掉，然后用winhex的16进制转二进制，最后加了一个wav格式的文件头，但是没有什么发现  
 
-今天跟出题人交流了下，知道怎么做了，虽然不算，也补上这题的做法
+今天跟出题人交流了下，知道怎么做了，虽然不算，也补上这题的做法  
 这是出题人出题的脚本，就是将字节转化成16进制表示：
 ```
 #!/usr/bin/env python
@@ -170,13 +170,13 @@ for i in xrange(len(con1)-1,-1,-1):
 
 print "done"
 ```
-这样之后再导入winhex，编辑→转换文件→十六进制ASCII到二进制
-然后音频就可以正常播放了
-用Audacity或者AU打开，看频谱图，就得到flag了
-*suctf{7dMXco4W8g3A}*
+这样之后再导入winhex，编辑→转换文件→十六进制ASCII到二进制  
+然后音频就可以正常播放了  
+用Audacity或者AU打开，看频谱图，就得到flag了  
+*suctf{7dMXco4W8g3A}*  
 
 ### RE--先利其器
-大概看下逻辑，翻一下字符即可
+大概看下逻辑，翻一下字符即可  
 *suctf{I_c@n_U5e_I6a}*
 
 ### RE--PE_Format
@@ -197,18 +197,18 @@ print str1
 
 
 ### RE--Find_correct_path
-IDA看下发现v7控制进入switch，但是v7值为0，整个过程没有更改，so
-用gdb调试，改v7的值，4个case都走一遍，第三个是flag
+IDA看下发现v7控制进入switch，但是v7值为0，整个过程没有更改，so  
+用gdb调试，改v7的值，4个case都走一遍，第三个是flag  
 *suctf{hl5_way_ls_r!8ht}*
 
 
 ### Crypto--base？？
-base32之后base64
+base32之后base64  
 *suctf{I_1ove_Su}*
 
 
 ### Crypto--凯撒大帝
-手工分开，然后ascii转字符，然后是两个凯撒的移位结合起来，没怎么搞懂
+手工分开，然后ascii转字符，然后是两个凯撒的移位结合起来，没怎么搞懂  
 ```
 # !python2
 # coding:utf-8
@@ -222,16 +222,16 @@ for i in lists:
 
 print str1
 ```
-转换完是这一个：oqneb{E_lx_Ywpdwn}
-凯撒选两个，然后分别取一部分
-surif{I_pb_Cathar}
-dfctq{T_am_Nleslc}
+转换完是这一个：oqneb{E_lx_Ywpdwn}  
+凯撒选两个，然后分别取一部分  
+surif{I_pb_Cathar}  
+dfctq{T_am_Nleslc}  
 
-*suctf{I_am_Caesar}*
+*suctf{I_am_Caesar}*  
 
 
 ### Crypto--easyRSA
-大概过程就是这样，用kali做了。。搞不懂windows下python模块的玄学
+大概过程就是这样，用kali做了。。搞不懂windows下python模块的玄学  
 1. 从pem公钥文件导出n,e
 ```
 from Crypto.PublicKey import RSA
@@ -263,25 +263,25 @@ crypto = open("flag.enc").read()
 message = rsa.decrypt(crypto,privkey)
 print message
 ```
-*suctf{Rsa_1s_ea5y}*
+*suctf{Rsa_1s_ea5y}*  
 (跟出题人交流之后觉得自己的方法有点费劲，用openssl和yafu就可以了)
 
 
 ### Crypto--普莱费尔
-百度百科介绍的比较详细，按着步骤来就可以了
-`C:pr ew gl qk ob bm xg ky zm vy ml `    这是密文
+百度百科介绍的比较详细，按着步骤来就可以了  
+`C:pr ew gl qk ob bm xg ky zm vy ml `    这是密文  
 
-密码表
-youar
-elckb
-dfghi
-mnpqs
-tvwxz
-
+密码表  
+youar  
+elckb  
+dfghi  
+mnpqs  
+tvwxz  
+ 
 明文
 `su ct fc ha rl es wh ea ts to ne`
 
-整理之后就是flag
+整理之后就是flag  
 *suctf{charleswheatstone}*
 
 
@@ -343,6 +343,6 @@ for b in xrange(122,96,-1):
 	print ming
 ```
 
-在跑出来的结果中找有意义的字符串，发现是：Goodlucktobreakme
-MD5加密一下，提交即可
+在跑出来的结果中找有意义的字符串，发现是：Goodlucktobreakme  
+MD5加密一下，提交即可  
 *suctf{afa6910cb4fd7f4bc44dc20e1fe60f11}*
